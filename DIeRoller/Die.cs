@@ -11,6 +11,12 @@ namespace DieRoller
     /// </summary>
     public class Die
     {
+        private static Random _random;
+
+        static Die()
+        {
+            _random = new Random();
+        }
         /// <summary>
         /// Creates a die and rolls it to start with
         /// a random number
@@ -43,7 +49,7 @@ namespace DieRoller
             {
                 // Generate random number
                 Random random = new Random();
-                byte newValue = (byte)random.Next(1, 7);
+                byte newValue = (byte)_random.Next(1, 7);
 
                 FaceValue = newValue;
             }
